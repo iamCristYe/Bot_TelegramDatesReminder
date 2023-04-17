@@ -6,4 +6,6 @@ app = Flask(__name__)
 def index():
     return 'Web App with Python Flask!'
 
-app.run(debug=True)
+@app.route('/about')
+def about():
+    return 'About'
