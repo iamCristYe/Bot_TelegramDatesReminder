@@ -25,6 +25,18 @@ def _start(message):
     bot.send_message(message.chat.id, msg)
 
 
+# non-command message
+@bot.message_handler(func=lambda m: True)
+def chat(message):
+    txt = message.text
+    if any(x in txt.lower() for x in ["thank","thx","cool"]):
+        msg = "anytime"
+    elif any(x in txt.lower() for x in ["hi","hello","yo","hey"]):
+        msg = "yo" if str(message.chat.username) == "none" else "yo "+str(message.chat.username)
+    else:
+        msg = message.text
+    bot.send_message(message.chat.id, msg)
+
 @app.route("/" + os.environ.get("telegram_key"), methods=["POST"])
 def getMessage():
     bot.process_new_updates(
