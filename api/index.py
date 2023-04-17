@@ -22,7 +22,7 @@ def _start(message):
     bot.send_message(message.chat.id, msg)
 
 
-@app.route("/" + config.telegram_key, methods=["POST"])
+@app.route("/" + os.environ.get("telegram_key"), methods=["POST"])
 def getMessage():
     bot.process_new_updates(
         [telebot.types.Update.de_json(flask.request.stream.read().decode("utf-8"))]
