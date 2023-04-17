@@ -53,3 +53,6 @@ def webhook():
         + os.environ("telegram_key")
     )
     return '倒读机'
+
+if __name__ == '__main__':
+   app.run()
