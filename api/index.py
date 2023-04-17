@@ -20,7 +20,7 @@ def _start(message):
     msg = (
         "Hello "
         + str(message.chat.username)
-        + ", I'm a date reminder. Tell me birthdays and events to remind you. To learn how to use me, use \n/help"
+        + "我只是个复读机"
     )
     bot.send_message(message.chat.id, msg)
 
