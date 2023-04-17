@@ -6,7 +6,7 @@ import os
 import telebot
 
 app = flask.Flask(__name__)
-bot = telebot.TeleBot(os.environ("telegram_key"))
+bot = telebot.TeleBot(os.environ.get("telegram_key"))
 
 # /start
 @bot.message_handler(commands=["start"])
@@ -37,7 +37,7 @@ def chat(message):
         msg = message.text[::-1]
     bot.send_message(message.chat.id, msg)
 
-@app.route("/" + os.environ("telegram_key"), methods=["POST"])
+@app.route("/" + os.environ.get("telegram_key"), methods=["POST"])
 def getMessage():
     bot.process_new_updates(
         [telebot.types.Update.de_json(flask.request.stream.read().decode("utf-8"))]
@@ -50,7 +50,7 @@ def webhook():
     bot.remove_webhook()
     bot.set_webhook(
         url="https://reverse-tg-bot.azurewebsites.net/"
-        + os.environ("telegram_key")
+        + os.environ.get("telegram_key")
     )
     return '倒读机'
 
