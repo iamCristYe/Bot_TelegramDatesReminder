@@ -20,7 +20,7 @@ def _start(message):
     msg = (
         "Hello "
         + str(message.chat.username)
-        + "我只是个复读机"
+        + "我只是个倒读机"
     )
     bot.send_message(message.chat.id, msg)
 
@@ -49,7 +49,7 @@ def getMessage():
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(
-        url="https://bot-telegram-dates-reminder.vercel.app/"
+        url="https://reverse-tg-bot.azurewebsites.net/"
         + os.environ.get("telegram_key")
     )
-    return 'Chat with the Bot  <a href ="https://t.me/DatesReminderBot">here</a> or   Check the project code <a href ="https://github.com/mdipietro09/Bot_TelegramDatesReminder">here</a>'
+    return '倒读机'
