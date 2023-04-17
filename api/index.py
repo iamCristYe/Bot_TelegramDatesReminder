@@ -25,4 +25,4 @@ app = flask.Flask(__name__)
 def webhook():
         #bot.remove_webhook()
        # bot.set_webhook(url="https://bot-telegram-dates-reminder.vercel.app/"+os.environ.get("telegram_key"))
-        return os.environ.get("telegram_key"), 200
+        return "hello", 200
