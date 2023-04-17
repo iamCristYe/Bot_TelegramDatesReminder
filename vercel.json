@@ -9,7 +9,7 @@
     "routes": [
         {
             "src": "(.*)",
-            "dest": "telegram_bot.py"
+            "dest": "app.py"
         }
     ]
   }
