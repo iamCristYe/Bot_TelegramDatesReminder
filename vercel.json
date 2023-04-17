@@ -1,9 +1,5 @@
 {
-    "builds": [
-        {
-            "src": "*.py",
-            "use": "@liudonghua123/now-flask"
-        }
-    ],
-    "redirects": [{ "source": "/", "destination": "/api" }]
-}
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/api/index" }
+    ]
+  }
