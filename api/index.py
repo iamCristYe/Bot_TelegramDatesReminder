@@ -1,7 +1,7 @@
 from flask import Flask
-
+import os
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return 'Hello, World!'
+    return os.environ.get("telegram_key")
