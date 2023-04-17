@@ -1,8 +1,11 @@
-from flask import Flask
+import flask
+import threading
+
+    
 import os
 import telebot
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 bot = telebot.TeleBot(os.environ.get("telegram_key"))
 
 # /start
@@ -25,7 +28,7 @@ def _start(message):
 @app.route("/" + os.environ.get("telegram_key"), methods=["POST"])
 def getMessage():
     bot.process_new_updates(
-        [telebot.types.Update.de_json(Flask.request.stream.read().decode("utf-8"))]
+        [telebot.types.Update.de_json(flask.request.stream.read().decode("utf-8"))]
     )
     return "!"
 
