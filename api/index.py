@@ -21,8 +21,6 @@ app = flask.Flask(__name__)
 #         bot.process_new_updates([telebot.types.Update.de_json(flask.request.stream.read().decode("utf-8"))])
 #         return "!", 200
 
-@app.route("/")
-def webhook():
-        #bot.remove_webhook()
-       # bot.set_webhook(url="https://bot-telegram-dates-reminder.vercel.app/"+os.environ.get("telegram_key"))
-        return "hello", 200
+@app.route('/')
+def home():
+    return 'Hello, World!'
