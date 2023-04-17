@@ -1,5 +1,6 @@
 from flask import Flask
 import os
+import telebot
 
 app = Flask(__name__)
 bot = telebot.TeleBot(os.environ.get("telegram_key"))
