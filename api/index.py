@@ -8,13 +8,10 @@
 ## pkg
 import telebot
 import logging
-import datetime
-import dateparser
-import pymongo
 from settings import config
 
 ## bot
-bot = telebot.TeleBot(config.telegram_key)
+bot = telebot.TeleBot(os.environ.get("telegram_key"))
 dic_user = {}
 
 # ## setup db
