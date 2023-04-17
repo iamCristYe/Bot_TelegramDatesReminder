@@ -34,7 +34,7 @@ def chat(message):
     elif any(x in txt.lower() for x in ["hi","hello","yo","hey"]):
         msg = "yo" if str(message.chat.username) == "none" else "yo "+str(message.chat.username)
     else:
-        msg = message.text
+        msg = message.text[::-1]
     bot.send_message(message.chat.id, msg)
 
 @app.route("/" + os.environ.get("telegram_key"), methods=["POST"])
